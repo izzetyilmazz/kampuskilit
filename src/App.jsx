@@ -172,7 +172,7 @@ export default function App() {
                 </p>
                 <div className="space-y-6 mt-auto">
                   <div className="flex items-start">
-                    <div className="text-4xl font-black mr-4 pt-1 text-red-200">50%</div>
+                    <div className="text-4xl font-black mr-4 pt-1 text-red-200">30%</div>
                     <p className="text-sm font-medium text-red-50">of every METU student takes commutes longer than 45 minutes everyday, round trip.</p>
                   </div>
                   <div className="flex items-start">
