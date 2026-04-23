@@ -20,11 +20,24 @@ export default function App() {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if(email) {
-      setSubmitted(true);
-      setEmail('');
+      try {
+        // BURAYA Google Apps Script'ten aldığınız URL'yi yapıştırın
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwb5aYRVUxm8KdlZEGEjAeWqjWwJ7E-WVov9lsTVgRZASU-C6HxurzqwPjP0z241Aye7Q/exec';
+        
+        await fetch(SCRIPT_URL, {
+          method: 'POST',
+          body: JSON.stringify({ email: email }),
+        });
+        
+        setSubmitted(true);
+        setEmail('');
+      } catch (error) {
+        console.error("Hata!", error);
+        alert("Something went wrong. Please try again.");
+      }
     }
   };
 
